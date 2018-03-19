@@ -17,4 +17,8 @@ public class MainActivity extends AppCompatActivity {
 
         startActivity(new Intent(MainActivity.this,GridActivity.class));
     }
+
+    public void differentItem(View view){
+        startActivity(new Intent(MainActivity.this,DiffernertItemActivity.class));
+    }
 }
