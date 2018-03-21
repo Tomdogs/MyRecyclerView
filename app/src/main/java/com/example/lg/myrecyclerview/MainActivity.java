@@ -21,4 +21,8 @@ public class MainActivity extends AppCompatActivity {
     public void differentItem(View view){
         startActivity(new Intent(MainActivity.this,DiffernertItemActivity.class));
     }
+
+    public void zxing(View view){
+        startActivity(new Intent(MainActivity.this,ZXingActivity.class));
+    }
 }

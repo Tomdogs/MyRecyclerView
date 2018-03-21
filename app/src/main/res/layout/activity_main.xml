@@ -24,6 +24,13 @@
             android:text="recyclerView不同布局item"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
+        <Button
+            android:onClick="zxing"
+            android:textAllCaps="false"
+            android:text="二维码扫描"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
 
