@@ -5,7 +5,7 @@ android {
     buildToolsVersion "27.0.1"
     defaultConfig {
         applicationId "com.example.lg.myrecyclerview"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -25,16 +25,15 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     //compile 'com.squareup.okhttp:okhttp:2.0.0'
+
+    // compile project(':lib-zxing')
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:design:26.0.0-alpha1'
     compile 'com.squareup.picasso:picasso:2.3.2'
     compile 'com.squareup.okhttp3:okhttp:3.6.0'
     compile 'com.google.code.gson:gson:2.2.4'
-    testCompile 'junit:junit:4.12'
-
-
-    // compile project(':lib-zxing')
     compile 'cn.yipianfengye.android:zxing-library:2.2'
     compile 'pub.devrel:easypermissions:0.2.0'
+    testCompile 'junit:junit:4.12'
 }

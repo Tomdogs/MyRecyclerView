@@ -3,10 +3,9 @@
     package="com.example.lg.myrecyclerview">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
-
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
+
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
@@ -15,6 +14,16 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
+    <!-- 程序访问粗略位置 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 允许用户访问精确位置 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="com.example.lg.myrecyclerview.permission.ACCESS_BOOK_SERVICE" />
+
+    <permission
+        android:name="com.example.lg.myrecyclerview.permission.ACCESS_BOOK_SERVICE"
+        android:protectionLevel="normal" />
 
     <application
         android:name=".application.MApplication"
@@ -24,7 +33,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -33,7 +42,29 @@
         </activity>
         <activity android:name=".GridActivity" />
         <activity android:name=".DiffernertItemActivity" />
-        <activity android:name=".ZXingActivity"></activity>
+        <activity android:name=".ZXingActivity" />
+        <activity android:name=".PermissionActivity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".ChoreographerActivity" />
+
+        <service
+            android:name=".aidl.MyAidlService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":aidl" />
+
+        <activity android:name=".aidl.MyAidlActivity" />
+        <activity android:name=".aidl.BookManagerActivity" />
+
+        <service
+            android:name=".aidl.BookManagerService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":remote" />
+
+        <activity android:name=".handler.HandlerTestActivity" />
+        <activity android:name=".threadpools.AsyncTaskActivity" />
+        <activity android:name=".view.CustomViewActivity"></activity>
     </application>
 
 </manifest>

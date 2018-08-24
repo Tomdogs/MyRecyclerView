@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.lg.myrecyclerview.view.CustomViewActivity">
+
+    <com.example.lg.myrecyclerview.view.MyButton
+        android:id="@+id/Custom_button"
+        android:layout_height="200dp"
+        android:layout_width="200dp"
+        android:textAllCaps="false"
+        android:text="scrollTo"/>
+
+    <com.example.lg.myrecyclerview.view.CustomViewScrollBy
+        app:layout_constraintTop_toBottomOf="@+id/Custom_button"
+        android:id="@+id/customView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:text="自定义TextView"
+        android:clickable="true"
+        android:background="@color/possible_result_points"
+        />
+
+</android.support.constraint.ConstraintLayout>

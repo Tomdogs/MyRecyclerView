@@ -31,6 +31,49 @@
             android:text="二维码扫描"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
+        <Button
+            android:onClick="permission"
+            android:textAllCaps="false"
+            android:text="权限问题"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:onClick="choreographer"
+            android:textAllCaps="false"
+            android:text="choreographer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:onClick="aidl"
+            android:textAllCaps="false"
+            android:text="aidl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:onClick="handler"
+            android:textAllCaps="false"
+            android:text="Handler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:onClick="ayncTask"
+            android:textAllCaps="false"
+            android:text="ayncTask"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:onClick="customView"
+            android:textAllCaps="false"
+            android:text="customView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
     </LinearLayout>
 
 

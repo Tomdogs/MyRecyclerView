@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">MyRecyclerView</string>
+
+    <string name="permission_get_accounts_hint">使用PPMap，请开启读取联系人权限</string>
+    <string name="permission_read_phone_hint">使用PPMap，请开启读取电话权限。</string>
+    <string name="permission_call_phone_hint">使用PPMap，请开启打电话权限</string>
+    <string name="permission_camera_hint">使用PPMap，请开启相机权限</string>
+    <string name="permission_access_fine_location_hint">使用PPMap，请开启定位权限</string>
+    <string name="permission_access_coarse_location_hint">使用PPMap，请开启基站定位权限</string>
+    <string name="permission_read_external_hint">使用PPMap，请开启读取存储权限</string>
+    <string name="permission_white_external_hint">使用PPMap，请开启写入权限</string>
+    <string name="permission_recode_audio_hint">使用PPMap，请开启媒体权限</string>
+    <string name="delete">删除</string>
+
 </resources>
