@@ -64,7 +64,19 @@
 
         <activity android:name=".handler.HandlerTestActivity" />
         <activity android:name=".threadpools.AsyncTaskActivity" />
-        <activity android:name=".view.CustomViewActivity"></activity>
+        <activity android:name=".view.CustomViewActivity" />
+
+        <service
+            android:name=".service.MyService"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".service.MyIntentService"
+            android:exported="false" />
+        <service
+            android:name=".aidl.MyCoustomService"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>

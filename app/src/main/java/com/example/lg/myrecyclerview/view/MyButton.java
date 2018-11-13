@@ -7,6 +7,9 @@ import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.Scroller;
 
 /**
  * Created by Tomdog on 2018/8/3.
@@ -16,6 +19,7 @@ public class MyButton extends AppCompatButton {
 
     private GestureDetector gestureDetector;
 
+    private Scroller scroller;
     // 分别记录上次滑动的坐标
     private int mLastX = 0;
     private int mLastY = 0;
@@ -62,6 +66,8 @@ public class MyButton extends AppCompatButton {
                 return false;
             }
         });
+
+        scroller = new Scroller(context);
     }
 
     @Override
@@ -114,6 +120,9 @@ public class MyButton extends AppCompatButton {
         switch (event.getAction()){
             case MotionEvent.ACTION_DOWN:
                 Log.i("MotionEvent","MotionEvent.ACTION_DOWN");
+                if(!scroller.isFinished()){
+                    scroller.abortAnimation();
+                }
                 break;
             case MotionEvent.ACTION_MOVE:
                 Log.i("MotionEvent","MotionEvent.ACTION_MOVE");
@@ -121,15 +130,29 @@ public class MyButton extends AppCompatButton {
                 int offsetX = rawX - mLastX;
                 int offsetY = rawY - mLastY;
 
-                scrollTo(-10,-10);
+//                scrollTo(-10,-10);
                 //scrollBy(-offsetX,-offsetY);
-                //((View) getParent()).scrollBy(-offsetX,-offsetY);
+//                ((View) getParent()).scrollBy(-offsetX,-offsetY);
 
-               /* layout(getLeft()+offsetX,
+              /*  layout(getLeft()+offsetX,
                         getTop()+offsetY,
                         getRight()+offsetX,
                         getBottom()+offsetY);*/
 
+//                smoothScrollTo(-offsetX,-offsetY);
+
+               /* offsetLeftAndRight(offsetX);
+                offsetTopAndBottom(offsetY);*/
+
+//                ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) getLayoutParams();
+//                ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) getLayoutParams();
+
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) getLayoutParams();
+                layoutParams.leftMargin = getLeft() + offsetX;
+                layoutParams.topMargin = getTop() + offsetY;
+                Log.i("MotionEvent","MotionEvent.ACTION_MOVE leftMargin:"+(getLeft() + offsetX));
+                Log.i("MotionEvent","MotionEvent.ACTION_MOVE topMargin:"+(getTop() + offsetY));
+                setLayoutParams(layoutParams);
                 break;
             case MotionEvent.ACTION_UP:
                 Log.i("MotionEvent","MotionEvent.ACTION_UP");
@@ -140,5 +163,24 @@ public class MyButton extends AppCompatButton {
         mLastX = (int) rawX;
         mLastY = (int) rawY;
         return super.onTouchEvent(event);
+    }
+
+    private void smoothScrollTo(int destX,int  destY){
+        View viewGroup = ((View) getParent());
+        Log.i("getScrollX","getScrollX():"+viewGroup.getScrollX());
+        Log.i("getScrollY","getScrollY():"+viewGroup.getScrollY());
+        scroller.startScroll(0,0,destX,destY,1000);
+        invalidate();
+    }
+
+    @Override
+    public void computeScroll() {
+//        super.computeScroll();
+        if(scroller.computeScrollOffset()){
+            Log.i("getCurrX","getCurrX():"+scroller.getCurrX());
+            Log.i("getCurrY","getCurrY():"+scroller.getCurrY());
+            ((View)getParent()).scrollBy(scroller.getCurrX(),scroller.getCurrY());
+            invalidate();
+        }
     }
 }
