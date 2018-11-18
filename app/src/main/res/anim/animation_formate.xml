@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    duration 动画持续的时间 accelerate_interpolator
+
+    interpolator 动画集合所采用的插值器，插值器影响动画的速度，比如非匀速就需要通过插值器来控制动画的播放，默认属性为：
+    accelerate_decelerate_interpolator；加速插值器为：accelerate_interpolator；匀速插值器为：linear_interpolator；
+    插值器会在属性动画中详细介绍。
+
+    shareInterpolator 表示集合中的动画是否和集合共享一个插值器。如果集合不指定插值器，那么子动画需要单独指定所需的插值器或者默认值。
+-->
+<set
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="3000"
+    android:interpolator="@android:anim/linear_interpolator"
+    android:shareInterpolator="true">
+
+    <!--
+        以下参数是4种动画效果的公共属性,即都有的属性
+        android:duration="3000" // 动画持续时间（ms），必须设置，动画才有效果
+        android:startOffset ="1000" // 动画延迟开始时间（ms）
+        android:fillBefore = “true” // 动画播放完后，视图是否会停留在动画开始的状态，默认为true
+        android:fillAfter = “false” // 动画播放完后，视图是否会停留在动画结束的状态，优先于fillBefore值，默认为false
+        android:fillEnabled= “true” // 是否应用fillBefore值，对fillAfter值无影响，默认为true
+        android:repeatMode= “restart” // 选择重复播放动画模式，restart代表正序重放，reverse代表倒序回放，默认为restart|
+        android:repeatCount = “0” // 重放次数（所以动画的播放次数=重放次数+1），为infinite时无限重复
+        android:interpolator = @[package:]anim/interpolator_resource // 插值器，即影响动画的播放速度,下面会详细讲
+    -->
+
+    <!-- 定义平移变换 -->
+    <!--
+        平移动画，对应的 TranslateAnimation 类，它可以是 View 在水平和竖直方向完成平移的动画效果
+        fromXDelta —— 表示 x 的起始值
+        toXDelta —— 表示 x 的接收值
+        fromYDelta —— 表示 y 的起始值
+        toYDelta —— 表示 y 的接收值
+    -->
+    <translate
+
+        android:fromXDelta="500"
+        android:toXDelta="0"
+        android:fromYDelta="500"
+        android:toYDelta="0"/>
+
+    <!-- 定义缩放变换 -->
+    <!--
+        缩放动画，对应的 ScaleAnimation ，它可以是 View 具有放大和缩小的动画效果
+        fromXScale —— 动画在在水平方向上的起始倍数（0.0 缩小到没有，1.0 表示正常无缩放，小于 1.0 表示缩小，大于 1.0 表示放大）
+        toXScale —— 动画在水平方向上结束时的倍数
+        pivotX —— 缩放轴点的 x 的坐标
+        pivotY —— 缩放轴点的 y 的坐标
+
+        轴点 = 视图缩放的中心点
+
+        pivotX pivotY,可取值为数字，百分比，或者百分比p
+        设置为数字时（如50），轴点为View的左上角的原点在x方向和y方向加上50px的点。在Java代码里面设置这个参数的对应参数是Animation.ABSOLUTE。
+        设置为百分比时（如50%），轴点为View的左上角的原点在x方向加上自身宽度50%和y方向自身高度50%的点。在Java代码里面设置这个参数的对应参数是Animation.RELATIVE_TO_SELF。
+        设置为百分比p时（如50%p），轴点为View的左上角的原点在x方向加上父控件宽度50%和y方向父控件高度50%的点。在Java代码里面设置这个参数的对应参数是Animation.RELATIVE_TO_PARENT
+
+        两个50%表示动画从自身中间开始，具体如下图
+
+    -->
+    <scale
+        android:fromXScale="0.01"
+        android:toXScale="1"
+        android:fromYScale="0.01"
+        android:toYScale="1"
+        android:pivotX="50%"
+        android:pivotY="50%"/>
+
+    <!-- 定义旋转变换 -->
+    <!--
+        表示旋转动画，对应于 RotateAnimation ,它可以是 View 具有旋转动画
+        fromDegrees —— 动画开始时 视图的旋转角度(正数 = 顺时针，负数 = 逆时针)
+        toDegrees —— 动画结束时 视图的旋转角度(正数 = 顺时针，负数 = 逆时针)
+        pivotY pivotX 同上
+    -->
+    <rotate
+        android:fromDegrees="1800"
+        android:toDegrees="0"
+        android:pivotY="50%"
+        android:pivotX="50%"/>
+
+    <!-- 定义透明度的变换 -->
+    <!--
+        表示同名的动画，对应 AlphaAnimation ，它可以改变 View 的透明度
+        fromAlpha —— 起始透明度 (取值范围: -1 ~ 1)
+        toAlpha —— 结束透明度 (取值范围: -1 ~ 1)
+    -->
+    <alpha
+        android:fromAlpha="0.05"
+        android:toAlpha="1"/>
+
+</set>

@@ -76,7 +76,9 @@
         <service
             android:name=".aidl.MyCoustomService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
+
+        <activity android:name=".AnimatorActivity"></activity>
     </application>
 
 </manifest>

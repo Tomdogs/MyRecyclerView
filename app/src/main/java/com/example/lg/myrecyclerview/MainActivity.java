@@ -64,6 +64,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(MainActivity.this,CustomViewActivity.class));
     }
 
+    public void animation(View view){
+
+        startActivity(new Intent(MainActivity.this,AnimatorActivity.class));
+    }
+
     @Override
     protected void onStart() {
         super.onStart();

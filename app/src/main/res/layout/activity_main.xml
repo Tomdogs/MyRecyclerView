@@ -7,74 +7,84 @@
     android:layout_height="match_parent"
     tools:context="com.example.lg.myrecyclerview.MainActivity">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <Button
-            android:onClick="gridLayout"
-            android:textAllCaps="false"
-            android:text="recyclerView网格布局"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content">
+            <Button
+                android:onClick="gridLayout"
+                android:textAllCaps="false"
+                android:text="recyclerView网格布局"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-        <Button
-            android:onClick="differentItem"
-            android:textAllCaps="false"
-            android:text="recyclerView不同布局item"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            <Button
+                android:onClick="differentItem"
+                android:textAllCaps="false"
+                android:text="recyclerView不同布局item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-        <Button
-            android:onClick="zxing"
-            android:textAllCaps="false"
-            android:text="二维码扫描"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            <Button
+                android:onClick="zxing"
+                android:textAllCaps="false"
+                android:text="二维码扫描"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-        <Button
-            android:onClick="permission"
-            android:textAllCaps="false"
-            android:text="权限问题"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            <Button
+                android:onClick="permission"
+                android:textAllCaps="false"
+                android:text="权限问题"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-        <Button
-            android:onClick="choreographer"
-            android:textAllCaps="false"
-            android:text="choreographer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            <Button
+                android:onClick="choreographer"
+                android:textAllCaps="false"
+                android:text="choreographer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-        <Button
-            android:onClick="aidl"
-            android:textAllCaps="false"
-            android:text="aidl"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            <Button
+                android:onClick="aidl"
+                android:textAllCaps="false"
+                android:text="aidl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-        <Button
-            android:onClick="handler"
-            android:textAllCaps="false"
-            android:text="Handler"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            <Button
+                android:onClick="handler"
+                android:textAllCaps="false"
+                android:text="Handler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-        <Button
-            android:onClick="ayncTask"
-            android:textAllCaps="false"
-            android:text="ayncTask"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            <Button
+                android:onClick="ayncTask"
+                android:textAllCaps="false"
+                android:text="ayncTask"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-        <Button
-            android:onClick="customView"
-            android:textAllCaps="false"
-            android:text="customView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            <Button
+                android:onClick="customView"
+                android:textAllCaps="false"
+                android:text="customView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-    </LinearLayout>
+            <Button
+                android:onClick="animation"
+                android:textAllCaps="false"
+                android:text="动画"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
