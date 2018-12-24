@@ -69,6 +69,18 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(MainActivity.this,AnimatorActivity.class));
     }
 
+    public void treeView(View view){
+
+        startActivity(new Intent(MainActivity.this,TreeviewActivity.class));
+    }
+    public void tinker(View view) {
+
+    }
+    public void operationPicture(View view) {
+        startActivity(new Intent(MainActivity.this,OperationPictureActivity.class));
+
+    }
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -101,4 +113,7 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         Log.i("声明周期1","mainActivity onDestroy");
     }
+
+
+
 }

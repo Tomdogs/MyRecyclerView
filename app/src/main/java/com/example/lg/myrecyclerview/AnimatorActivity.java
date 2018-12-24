@@ -17,9 +17,23 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.lg.myrecyclerview.animator.MyTypeEvaluator;
+import com.example.lg.myrecyclerview.model.GeoJsonPointBean;
+import com.example.lg.myrecyclerview.model.Message;
+import com.example.lg.myrecyclerview.util.ILog;
+import com.example.lg.myrecyclerview.util.JsonUtil;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.List;
 
 public class AnimatorActivity extends AppCompatActivity {
     private static final String TAG = "AnimatorActivity";
+    String s = "{\"msg\":\"ok\",\"code\":\"0\",\"data\":{\"tasks\":[{\"id\":1,\"userId\":\"2\",\"summary\":\"好好学习，天天向上\",\"addTime\":\"2017-04-29 18:49:49\",\"status\":0}]}}";
+
+    private static String json = "{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[102.0,0.5]},\"properties\":{\"prop0\":\"value0\"}},{\"type\":\"Feature\",\"geometry\":{\"type\":\"LineString\",\"coordinates\":[[102.0,0.0],[103.0,1.0],[104.0,0.0],[105.0,1.0]]},\"properties\":{\"prop0\":\"value0\"}},{\"type\":\"Feature\",\"geometry\":{\"type\":\"Polygon\",\"coordinates\":[[[100.0,0.0],[101.0,0.0],[101.0,1.0],[100.0,1.0],[100.0,0.0]]]},\"properties\":{\"prop0\":\"value0\"}}]}";
+    private static String json2 = "{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[102.0,0.5]},\"properties\":{\"prop0\":\"value0\"}}]}";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,8 +54,106 @@ public class AnimatorActivity extends AppCompatActivity {
         AnimationDrawable animationDrawable = (AnimationDrawable) imageView.getBackground();
         animationDrawable.start();
 //        animationDrawable.stop();
+
+        ILog.i("开始加重Geojson");
+//        GeoJsonParse.parseGeoJson(GeoJsonParse.json2);
+        geoJson();
     }
 
+    private void geoJson(){
+
+
+        String features = JsonUtil.getFieldValue(json,"features");
+        try {
+            JSONArray featuresArray = new JSONArray(features);
+            Log.i("parseGeoJson","解析的类型featuresArray："+featuresArray.toString());
+            for (int i=0;i<featuresArray.length();i++){
+                String item = featuresArray.get(i).toString();
+                String geometry = JsonUtil.getFieldValue(item,"geometry");
+                String type = JsonUtil.getFieldValue(geometry,"type");
+                Log.i("parseGeoJson","解析的类型："+type);
+                Log.i("parseGeoJson","解析的数据："+geometry);
+                praseByType(type,item);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void praseByType(String type,String geometry){
+
+        switch (type){
+            case "Point":
+                GeoJsonPointBean geoJsonPointBean = JsonUtil.parseJsonToBean(geometry,GeoJsonPointBean.class);
+                GeoJsonPointBean.GeometryEntity geometryEntity = geoJsonPointBean.getGeometry();
+
+//                Gson gson = new Gson();
+//                List<Double> coordinatesList = gson.fromJson(geometry,new TypeToken<List<Double>>(){}.getType());
+                List<Double> coordinatesList = (List<Double>) geometryEntity.getCoordinates();
+                /*for(Point coordinates : coordinatesList){
+                    Log.i("parseGeoJson","Point："+coordinates);
+                }*/
+                for(int i=0;i<coordinatesList.size();i++){
+                    Log.i("parseGeoJson","Point："+coordinatesList.get(i));
+                }
+                break;
+            case "LineString":
+               /* GeoJsonLineStringBean geoJsonLineStringBean = JsonUtil.parseJsonToBean(geometry,GeoJsonLineStringBean.class);
+                GeoJsonLineStringBean.GeometryEntity geometryLineEntity = geoJsonLineStringBean.getGeometry();
+                List coordinatesLineList = geometryLineEntity.getCoordinates();*/
+
+                GeoJsonPointBean geoJsonPointBean2 = JsonUtil.parseJsonToBean(geometry,GeoJsonPointBean.class);
+                GeoJsonPointBean.GeometryEntity geometryEntity2 = geoJsonPointBean2.getGeometry();
+                List<List<Double>> coordinatesList2 = (List<List<Double>>) geometryEntity2.getCoordinates();
+
+
+                for(int i=0;i<coordinatesList2.size();i++){
+                    Log.i("parseGeoJson","LineString 1："+coordinatesList2.get(i));
+                    for(int j=0;j<coordinatesList2.get(i).size();j++){
+                        Log.i("parseGeoJson","LineString 2："+coordinatesList2.get(i).get(j));
+                    }
+                }
+                break;
+            case "Polygon":
+                /*GeoJsonPolygonBean geoJsonPolygonBean = JsonUtil.parseJsonToBean(geometry,GeoJsonPolygonBean.class);
+                GeoJsonPolygonBean.GeometryEntity geometryPolygonEntity = geoJsonPolygonBean.getGeometry();
+                List coordinatesPolygonList = geometryPolygonEntity.getCoordinates();*/
+
+
+                GeoJsonPointBean geoJsonPointBean3 = JsonUtil.parseJsonToBean(geometry,GeoJsonPointBean.class);
+                GeoJsonPointBean.GeometryEntity geometryEntity3 = geoJsonPointBean3.getGeometry();
+                List<List<List<Double>>> coordinatesList3 = (List<List<List<Double>>>) geometryEntity3.getCoordinates();
+
+
+                for(int i=0;i<coordinatesList3.size();i++){
+                    Log.i("parseGeoJson","Polygon 1："+coordinatesList3.get(i));
+                    for(int j=0;j<coordinatesList3.get(i).size();j++){
+                        Log.i("parseGeoJson","Polygon 2："+coordinatesList3.get(i).get(j));
+                    }
+                }
+
+                break;
+        }
+    }
+
+    private void geoJson2(){
+        try {
+            JSONObject object = new JSONObject(s);
+            Log.i("parseGeoJson","字符串："+object.toString());
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        Message geoJsonBean = null;
+        try {
+            geoJsonBean = JsonUtil.jsonToObject(Message.class,new JSONObject(s));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        Log.i("parseGeoJson","解析的1："+geoJsonBean);
+        Log.i("parseGeoJson","解析的2："+geoJsonBean.getCode());
+    }
     //补间动画
     private void tweenAnimation(){
         ImageView imageView = (ImageView) findViewById(R.id.tween_picture);

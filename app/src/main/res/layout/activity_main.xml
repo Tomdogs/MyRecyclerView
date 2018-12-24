@@ -84,6 +84,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
+            <Button
+                android:onClick="treeView"
+                android:textAllCaps="false"
+                android:text="树结构"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <Button
+                android:onClick="tinker"
+                android:textAllCaps="false"
+                android:text="树结构"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:onClick="operationPicture"
+                android:textAllCaps="false"
+                android:text="图片操作"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
         </LinearLayout>
     </ScrollView>
 

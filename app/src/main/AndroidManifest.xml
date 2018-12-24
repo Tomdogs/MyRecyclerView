@@ -78,7 +78,10 @@
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".AnimatorActivity"></activity>
+        <activity android:name=".AnimatorActivity" />
+        <activity android:name=".TreeviewActivity" />
+        <activity android:name=".HotFixActivity" />
+        <activity android:name=".OperationPictureActivity"></activity>
     </application>
 
 </manifest>

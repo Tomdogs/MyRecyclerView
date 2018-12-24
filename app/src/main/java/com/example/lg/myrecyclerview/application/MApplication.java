@@ -2,6 +2,7 @@ package com.example.lg.myrecyclerview.application;
 
 import android.app.Application;
 
+import com.github.johnkil.print.PrintConfig;
 import com.uuzuche.lib_zxing.activity.ZXingLibrary;
 
 /**
@@ -15,5 +16,8 @@ public class MApplication extends Application {
         super.onCreate();
 
         ZXingLibrary.initDisplayOpinion(this);
+
+        //IconFont 字体
+        PrintConfig.initDefault(getAssets(), "fonts/material-icon-font.ttf");
     }
 }
