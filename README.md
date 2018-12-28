@@ -34,3 +34,6 @@
 ### 9.bitmap优化
 
 详细分析可参考 [深入理解Android Bitmap的各种操作](https://blog.csdn.net/wanliguodu/article/details/84973846)
+
+### 10.分发机制和滑动冲突
+详细分析可参考 [Android的事件分发机制和滑动冲突](https://blog.csdn.net/wanliguodu/article/details/85268201)
