@@ -81,7 +81,9 @@
         <activity android:name=".AnimatorActivity" />
         <activity android:name=".TreeviewActivity" />
         <activity android:name=".HotFixActivity" />
-        <activity android:name=".OperationPictureActivity"></activity>
+        <activity android:name=".OperationPictureActivity" />
+        <activity android:name=".SlidingConflictActivity"></activity>
+        <activity android:name=".SlidingConflictActivity2"></activity>
     </application>
 
 </manifest>

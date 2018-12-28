@@ -93,7 +93,7 @@
             <Button
                 android:onClick="tinker"
                 android:textAllCaps="false"
-                android:text="树结构"
+                android:text="Tinker"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -104,6 +104,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
+            <Button
+                android:onClick="slidingConflict"
+                android:textAllCaps="false"
+                android:text="滑动冲突-外部拦截法"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <Button
+                android:onClick="slidingConflict2"
+                android:textAllCaps="false"
+                android:text="滑动冲突-内部拦截法"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
         </LinearLayout>
     </ScrollView>
 

@@ -44,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(MainActivity.this,ChoreographerActivity.class));
     }
 
-
     public void aidl(View view){
 
         startActivity(new Intent(MainActivity.this,BookManagerActivity.class));
@@ -81,6 +80,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void slidingConflict(View view){
+        startActivity(new Intent(MainActivity.this,SlidingConflictActivity.class));
+    }
+    public void slidingConflict2(View view){
+        startActivity(new Intent(MainActivity.this,SlidingConflictActivity2.class));
+    }
     @Override
     protected void onStart() {
         super.onStart();
