@@ -55,8 +55,9 @@ public class MyHorizontalScrollView2 extends ViewGroup {
      */
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
+        Log.i("父容器","dispatchTouchEvent --------------------- ");
         if(event.getAction() == MotionEvent.ACTION_DOWN){
-            Log.i("父容器","dispatchTouchEvent down");
+            Log.i("父容器","dispatchTouchEvent down ");
         }else if(event.getAction() == MotionEvent.ACTION_MOVE){
             Log.i("父容器","dispatchTouchEvent move ");
         }else if (event.getAction() == MotionEvent.ACTION_UP){

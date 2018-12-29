@@ -25,6 +25,9 @@ public class SlidingConflictActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sliding_conflict2);
         initView();
+
+//        LinearLayout
+//        View
     }
 
     private void initView() {
